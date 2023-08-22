@@ -1,0 +1,81 @@
+---
+title: "Educational Qualifications"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(janitor)
+library(here)
+library(rio)
+library(gt)
+library(gtExtras)
+library(ggthemes)
+library(forcats)
+library(plotly)
+library(ggrepel)
+library(gghighlight)
+```
+
+```{r}
+gt_theme_538 <- function(data,...) {
+  data %>%
+    opt_all_caps()  %>%
+    opt_table_font(
+      font = list(
+        google_font("Chivo"),
+        default_fonts()
+      )
+    ) %>%
+    tab_style(
+      style = cell_borders(
+        sides = "bottom", color = "transparent", weight = px(2)
+      ),
+      locations = cells_body(
+        columns = TRUE,
+        # This is a relatively sneaky way of changing the bottom border
+        # Regardless of data size
+        rows = nrow(data$`_data`)
+      )
+    )  %>% 
+    tab_options(
+      column_labels.background.color = "white",
+      table.border.top.width = px(3),
+      table.border.top.color = "transparent",
+      table.border.bottom.color = "transparent",
+      table.border.bottom.width = px(3),
+      column_labels.border.top.width = px(3),
+      column_labels.border.top.color = "transparent",
+      column_labels.border.bottom.width = px(3),
+      column_labels.border.bottom.color = "black",
+      data_row.padding = px(3),
+      source_notes.font.size = 12,
+      table.font.size = 16,
+      heading.align = "left",
+      ...
+    ) 
+}
+
+```
+
+```{r}
+edu <- read.csv("edu.csv") 
+
+table <- edu %>% 
+  mutate(logo = c("https://www.iisertvm.ac.in/files/get_file/7f24d240521d99071c93af3917215ef7", "https://mcc.edu.in/wp-content/uploads/2021/04/MMC-LOGO-2-229x300.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Crest_of_St.Stephens_Coll%2C_UOD.svg/1200px-Crest_of_St.Stephens_Coll%2C_UOD.svg.png")) %>% 
+  select(Degree, logo, Institution, Year) %>% 
+  gt() %>% 
+  gt_img_rows(columns = logo, height = 20) %>% 
+  cols_label(
+    logo = ""
+  )%>%  
+  gt_theme_538()
+
+
+table            
+```
