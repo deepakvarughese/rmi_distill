@@ -1,0 +1,26 @@
+---
+title: "Ruth Mariam Ipe"
+image: "ruth.jpg"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/ruth-mariam-2b817a280/"
+  - label: Email
+    url: "mailto:ruthmariamipe@email.com"
+output:
+  postcards::trestles
+site: distill::distill_website
+---
+I am a researcher working on the synthesis of porphyrins. I am interested in the applications of porphyrins in optoelectronics and photodynamic therapy.  I have experience working on pi-Extended Porphyrinoids and bis-Carbaporphyrinoids incorporating Polycyclic Aromatic Hydrocarbons (PAH’s) and its applications.
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+# Learn more about publishing to GitHub Pages at:
+# https://rstudio.github.io/distill/publish_website.html#github-pages
+
+```
+
