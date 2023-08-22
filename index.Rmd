@@ -5,7 +5,7 @@ links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/ruth-mariam-2b817a280/"
   - label: Email
-    url: "mailto:ruthmariamipe@email.com"
+    url: "mailto:ruthmariamipe@gmail.com"
 output:
   postcards::trestles
 site: distill::distill_website
