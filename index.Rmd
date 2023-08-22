@@ -1,5 +1,5 @@
 ---
-title: "Ruth Mariam Ipe"
+title: "Ruth Mariam Ipe , PhD"
 image: "ruth.jpg"
 links:
   - label: LinkedIn
